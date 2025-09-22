@@ -1,0 +1,69 @@
+
+<div id="list-friends" class="max-w-3xl mx-auto p-6 space-y-6">
+  <!-- 🟦 SECTION PRINCIPALE : Conteneur de la fonctionnalité "Liste d'amis"
+       - max-w-3xl : largeur maximale pour limiter la taille de l’affichage sur grands écrans
+       - mx-auto : centre horizontalement le bloc
+       - p-6 : padding interne pour l’espacement
+       - space-y-6 : ajoute un espacement vertical uniforme entre les enfants -->
+  
+  <!-- 🟦 TITRE PRINCIPAL -->
+  <h1 class="text-3xl font-bold text-center text-primary">
+    <!-- Texte explicatif du composant, avec une mise en avant de l'Event Binding -->
+    List Friends <span class="text-base-content/70">(Event Binding)</span>
+  </h1>
+
+  <!-- 🟩 CHAMP DE SAISIE : Ajout d’un nouvel ami -->
+  <div class="form-control w-full max-w-md mx-auto">
+    <!-- Label associé au champ (bonne pratique accessibilité) -->
+    <label class="label">
+      <span class="label-text text-base-content">Nom de l'ami</span>
+    </label>
+
+    <!-- Input contrôlé avec Event Binding :
+         - (input)="onUpdateFriendsList($event)" → déclenche la méthode TS à chaque saisie
+         - placeholder : invite l’utilisateur à entrer un nom
+         - aria-label : améliore l’accessibilité pour lecteurs d’écran
+         - classes Tailwind : input avec bordure et largeur responsive -->
+    <input 
+      (input)="onUpdateFriendsList($event)" 
+      type="text" 
+      placeholder="Entrer le nom d'un ami"
+      class="input input-bordered w-full" 
+      aria-label="Nom de l'ami" />
+  </div>
+
+  <!-- 🟨 ZONE D’INFORMATION : retour utilisateur -->
+  <div class="text-center space-y-2">
+    <!-- Affiche dynamiquement le texte saisi par l’utilisateur -->
+    <p class="text-base text-secondary font-medium">
+      {{ listFriendsInputText }}
+    </p>
+
+    <!-- Affiche le statut (par ex. "ami ajouté" ou autre message) -->
+    <p class="text-sm text-accent">
+      {{ listFriendsCreationStatus }}
+    </p>
+  </div>
+
+  <!-- 🟧 BOUTON AJOUTER : interaction principale -->
+  <div class="text-center">
+    <!-- Bouton déclenchant l’ajout d’un ami :
+         - (click)="onAddingFriends()" → appelle la méthode TS correspondante
+         - [disabled]="listFriendsAuth" → désactivation conditionnelle (ex. champ vide ou invalide)
+         - icône ➕ pour renforcer la compréhension visuelle -->
+    <button 
+      class="btn btn-primary btn-wide" 
+      (click)="onAddingFriends()" 
+      [disabled]="listFriendsAuth">
+      ➕ Ajouter un ami
+    </button>
+  </div>
+
+  <!-- 🟪 LISTE DES AMIS -->
+  <div class="mt-6">
+    <!-- Composant enfant prévu pour afficher un ami individuel.
+         Actuellement commenté → sera réactivé quand l’intégration du composant <app-one-friend-event-binding> sera prête. -->
+    <!-- <app-one-friend-event-binding></app-one-friend-event-binding> -->
+  </div>
+</div>
+

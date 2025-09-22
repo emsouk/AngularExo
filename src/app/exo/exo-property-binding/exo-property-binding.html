@@ -1,0 +1,35 @@
+
+<div id="one-friend-card" class="container mx-auto p-4">
+  <!-- 🟩 Grid responsive -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <!-- 🟦 Carte Ami -->
+    <div class="card bg-base-200 shadow-xl">
+      <figure>
+        <img [src]="oneFriendImgUrl" [alt]="oneFriendName" alt="" class="object-cover w-full h-48 rounded-t-xl" />
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title text-primary">
+          {{ oneFriendName }}
+        </h2>
+
+        <p class="text-sm">
+          <span class="font-bold">Status :</span>
+          {{ getOneFriendStatus() }}
+        </p>
+        <p class="text-sm">
+          <span class="font-bold">Âge :</span>
+          {{ oneFriendAge }}
+        </p>
+        <p class="text-sm">
+          <span class="font-bold">Bio :</span>
+          {{ oneFriendBio }}
+        </p>
+        <p class="text-sm">
+          <span class="font-bold">Réputation :</span>
+          {{ 1 === 1 ? 'Ringard' : 'Cool' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
