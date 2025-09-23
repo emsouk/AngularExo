@@ -1,20 +1,22 @@
+import { FormsModule } from '@angular/forms';
 
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-property-binding',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './exo-property-binding.html',
   styleUrl: './exo-property-binding.css'
 })
 
 export class ExoPropertyBinding {
-  
+
   oneFriendId:number=99;
-  oneFriendName:string="Steven Cigale";
-  oneFriendAge:number=25;
+  oneFriendName:string="";
+  oneFriendAge:number=0;
   oneFriendStatus:string="Offline";
-  oneFriendBio:string="Steven Cigale is a French film producer, screenwriter, and director. He is best known for his work in the 2000s and 2010s.";
+  oneFriendBio:string="";
   oneFriendImgUrl:string="https://picsum.photos/seed/picsum/150/150";
 
   getOneFriendStatus():string{

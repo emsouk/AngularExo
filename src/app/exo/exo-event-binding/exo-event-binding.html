@@ -5,7 +5,7 @@
        - mx-auto : centre horizontalement le bloc
        - p-6 : padding interne pour l’espacement
        - space-y-6 : ajoute un espacement vertical uniforme entre les enfants -->
-  
+
   <!-- 🟦 TITRE PRINCIPAL -->
   <h1 class="text-3xl font-bold text-center text-primary">
     <!-- Texte explicatif du composant, avec une mise en avant de l'Event Binding -->
@@ -24,12 +24,14 @@
          - placeholder : invite l’utilisateur à entrer un nom
          - aria-label : améliore l’accessibilité pour lecteurs d’écran
          - classes Tailwind : input avec bordure et largeur responsive -->
-    <input 
-      (input)="onUpdateFriendsList($event)" 
-      type="text" 
+    <input
+      {# (input)="onUpdateFriendsList($event)" #}
+      type="text"
+      [(ngModel)]="listFriendsInputText"
       placeholder="Entrer le nom d'un ami"
-      class="input input-bordered w-full" 
+      class="input input-bordered w-full"
       aria-label="Nom de l'ami" />
+
   </div>
 
   <!-- 🟨 ZONE D’INFORMATION : retour utilisateur -->
@@ -51,9 +53,9 @@
          - (click)="onAddingFriends()" → appelle la méthode TS correspondante
          - [disabled]="listFriendsAuth" → désactivation conditionnelle (ex. champ vide ou invalide)
          - icône ➕ pour renforcer la compréhension visuelle -->
-    <button 
-      class="btn btn-primary btn-wide" 
-      (click)="onAddingFriends()" 
+    <button
+      class="btn btn-primary btn-wide"
+      (click)="onAddingFriends()"
       [disabled]="listFriendsAuth">
       ➕ Ajouter un ami
     </button>

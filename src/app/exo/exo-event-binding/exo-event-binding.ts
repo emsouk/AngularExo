@@ -1,5 +1,8 @@
 
+
+
 import { Component } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 
 /**
  * 🧩 Composant Angular : ExoEventBinding
@@ -11,7 +14,7 @@ import { Component } from '@angular/core';
  */
 @Component({
   selector: 'app-event-binding',          // 🔹 Balise HTML personnalisée du composant
-  imports: [],                            // 🔹 (vide ici) → pourrait contenir des modules Angular nécessaires
+  imports: [FormsModule],                            // 🔹 (vide ici) → pourrait contenir des modules Angular nécessaires
   templateUrl: './exo-event-binding.html',// 🔹 Vue HTML associée
   styleUrl: './exo-event-binding.css'     // 🔹 Feuille de style spécifique
 })
@@ -61,7 +64,7 @@ export class ExoEventBinding {
     console.log(eventInput.target.value);
 
     // ✅ Récupération typée de la valeur de l'input avec cast TS
-    this.listFriendsInputText = (<HTMLInputElement>eventInput.target).value;
+    //this.listFriendsInputText = (<HTMLInputElement>eventInput.target).value;
 
     //! Variante alternative avec "as" (souvent plus lisible)
     // this.listFriendsInputText = (eventInput.target as HTMLInputElement).value;
