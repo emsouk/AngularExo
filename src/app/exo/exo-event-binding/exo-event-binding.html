@@ -12,20 +12,14 @@
     List Friends <span class="text-base-content/70">(Event Binding)</span>
   </h1>
 
-  <!-- 🟩 CHAMP DE SAISIE : Ajout d’un nouvel ami -->
   <div class="form-control w-full max-w-md mx-auto">
     <!-- Label associé au champ (bonne pratique accessibilité) -->
     <label class="label">
       <span class="label-text text-base-content">Nom de l'ami</span>
     </label>
 
-    <!-- Input contrôlé avec Event Binding :
-         - (input)="onUpdateFriendsList($event)" → déclenche la méthode TS à chaque saisie
-         - placeholder : invite l’utilisateur à entrer un nom
-         - aria-label : améliore l’accessibilité pour lecteurs d’écran
-         - classes Tailwind : input avec bordure et largeur responsive -->
+
     <input
-      {# (input)="onUpdateFriendsList($event)" #}
       type="text"
       [(ngModel)]="listFriendsInputText"
       placeholder="Entrer le nom d'un ami"
@@ -34,25 +28,24 @@
 
   </div>
 
-  <!-- 🟨 ZONE D’INFORMATION : retour utilisateur -->
+
   <div class="text-center space-y-2">
-    <!-- Affiche dynamiquement le texte saisi par l’utilisateur -->
     <p class="text-base text-secondary font-medium">
       {{ listFriendsInputText }}
     </p>
 
     <!-- Affiche le statut (par ex. "ami ajouté" ou autre message) -->
-    <p class="text-sm text-accent">
-      {{ listFriendsCreationStatus }}
-    </p>
+    <p *ngIf="listFriendsCreationStatus; else failedTemplate" class="text-sm text-accent"> YOUHOUUU T'as des potes</p>
+
+
+    <ng-template #failedTemplate>
+      <p class="text-sm text-red-500">T'as pas de potes</p>
+    </ng-template>
   </div>
 
-  <!-- 🟧 BOUTON AJOUTER : interaction principale -->
+
   <div class="text-center">
-    <!-- Bouton déclenchant l’ajout d’un ami :
-         - (click)="onAddingFriends()" → appelle la méthode TS correspondante
-         - [disabled]="listFriendsAuth" → désactivation conditionnelle (ex. champ vide ou invalide)
-         - icône ➕ pour renforcer la compréhension visuelle -->
+
     <button
       class="btn btn-primary btn-wide"
       (click)="onAddingFriends()"

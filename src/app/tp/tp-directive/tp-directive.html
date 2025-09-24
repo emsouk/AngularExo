@@ -1,0 +1,18 @@
+<div class="max-w-3xl mx-auto p-6 space-y-6">
+
+      <button type="button" (click)="toggleDetails()" class="btn btn-primary">
+      {{ showDetails ? 'Cacher détails' : 'Afficher détails' }}
+    </button>
+
+    <p *ngIf="showDetails">🐨🐱🐹🦊🐽🐸🐧🐥</p>
+
+    <ul>
+      <li *ngFor="let item of items; let i = index"
+          [ngStyle]="{ 'background-color': i >= 4 ? 'lightblue' : 'transparent' }"
+          [ngClass]="{ 'text-white': i >= 4 }">
+
+        {{ item }}
+      </li>
+    </ul>
+</div>
+

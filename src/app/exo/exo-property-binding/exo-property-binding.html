@@ -13,11 +13,13 @@
         </h2>
 
         <p class="text-sm">
-          <span class="font-bold">Status :</span>
+          <span [ngStyle]="{color: oneFriendStatus === 'Online' ? 'green' : 'red'}" class="font-bold">Status :</span>
           {{ getOneFriendStatus() }}
+          <!-- 🟨 Ternary operator -->
         </p>
+             <button (click)="oneFriendStatus = 'Online' " type="button">Online</button>
         <p class="text-sm">
-          <span class="font-bold">Âge :</span>
+          <span [ngStyle]="{color: oneFriendAge > 30 ? 'red' : 'green'}" class="font-bold">Âge :</span>
           {{ oneFriendAge }}
         </p>
         <p class="text-sm">
