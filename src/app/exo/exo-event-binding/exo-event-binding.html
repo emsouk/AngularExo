@@ -1,64 +1,57 @@
+<div id="list-friends" class="max-w-3xl mx-auto p-6">
+  <!-- Carte principale -->
+  <div class="card bg-base-200 shadow-xl rounded-box p-6 space-y-6">
 
-<div id="list-friends" class="max-w-3xl mx-auto p-6 space-y-6">
-  <!-- 🟦 SECTION PRINCIPALE : Conteneur de la fonctionnalité "Liste d'amis"
-       - max-w-3xl : largeur maximale pour limiter la taille de l’affichage sur grands écrans
-       - mx-auto : centre horizontalement le bloc
-       - p-6 : padding interne pour l’espacement
-       - space-y-6 : ajoute un espacement vertical uniforme entre les enfants -->
+    <!-- 🟦 TITRE PRINCIPAL -->
+    <h1 class="text-3xl font-bold text-center text-primary">
+      List Friends <span class="text-base-content/70">(Event Binding)</span>
+    </h1>
+    <div class="divider"></div>
 
-  <!-- 🟦 TITRE PRINCIPAL -->
-  <h1 class="text-3xl font-bold text-center text-primary">
-    <!-- Texte explicatif du composant, avec une mise en avant de l'Event Binding -->
-    List Friends <span class="text-base-content/70">(Event Binding)</span>
-  </h1>
+    <!-- Champ Input -->
+    <div class="form-control w-full max-w-md mx-auto">
+      <label class="label">
+        <span class="label-text text-base-content">Nom de l'ami</span>
+      </label>
+      <input
+        type="text"
+        [(ngModel)]="listFriendsInputText"
+        placeholder="Entrer le nom d'un ami"
+        class="input input-bordered input-primary w-full"
+        aria-label="Nom de l'ami" />
+    </div>
 
-  <div class="form-control w-full max-w-md mx-auto">
-    <!-- Label associé au champ (bonne pratique accessibilité) -->
-    <label class="label">
-      <span class="label-text text-base-content">Nom de l'ami</span>
-    </label>
+    <!-- Messages -->
+    <div class="text-center space-y-2">
+      <p class="text-base text-secondary font-medium">
+        {{ listFriendsInputText }}
+      </p>
 
+      <p *ngIf="listFriendsCreationStatus; else failedTemplate"
+         class="alert alert-success flex items-center justify-center gap-2 py-2 text-sm">
+        🎉 YOUHOUUU T'as des potes
+      </p>
 
-    <input
-      type="text"
-      [(ngModel)]="listFriendsInputText"
-      placeholder="Entrer le nom d'un ami"
-      class="input input-bordered w-full"
-      aria-label="Nom de l'ami" />
+      <ng-template #failedTemplate>
+        <p class="alert alert-error flex items-center justify-center gap-2 py-2 text-sm">
+          ⚠️ T'as pas de potes
+        </p>
+      </ng-template>
+    </div>
 
-  </div>
+    <!-- Bouton -->
+    <div class="text-center">
+      <button
+        class="btn btn-primary btn-wide hover:scale-105 transition-transform duration-200"
+        (click)="onAddingFriends()"
+        [disabled]="listFriendsAuth">
+        ➕ Ajouter un ami
+      </button>
+    </div>
 
-
-  <div class="text-center space-y-2">
-    <p class="text-base text-secondary font-medium">
-      {{ listFriendsInputText }}
-    </p>
-
-    <!-- Affiche le statut (par ex. "ami ajouté" ou autre message) -->
-    <p *ngIf="listFriendsCreationStatus; else failedTemplate" class="text-sm text-accent"> YOUHOUUU T'as des potes</p>
-
-
-    <ng-template #failedTemplate>
-      <p class="text-sm text-red-500">T'as pas de potes</p>
-    </ng-template>
-  </div>
-
-
-  <div class="text-center">
-
-    <button
-      class="btn btn-primary btn-wide"
-      (click)="onAddingFriends()"
-      [disabled]="listFriendsAuth">
-      ➕ Ajouter un ami
-    </button>
-  </div>
-
-  <!-- 🟪 LISTE DES AMIS -->
-  <div class="mt-6">
-    <!-- Composant enfant prévu pour afficher un ami individuel.
-         Actuellement commenté → sera réactivé quand l’intégration du composant <app-one-friend-event-binding> sera prête. -->
-    <!-- <app-one-friend-event-binding></app-one-friend-event-binding> -->
+    <!-- 🟪 LISTE DES AMIS -->
+    <div class="mt-6 card bg-base-100 shadow-inner p-4">
+      <!-- <app-one-friend-event-binding></app-one-friend-event-binding> -->
+    </div>
   </div>
 </div>
-

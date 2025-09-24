@@ -1,1 +1,39 @@
-<p>footer works!</p>
+<footer class="footer bg-base-100 shadow-inner rounded-box mt-10">
+  <div class="container mx-auto px-4 sm:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+
+    <!-- Logo + Nom -->
+    <div class="flex items-center gap-2">
+      <a routerLink="/home" class="btn btn-ghost normal-case text-xl font-bold text-primary">
+        Supra-Angular
+      </a>
+    </div>
+
+    <!-- Liens principaux -->
+    <nav class="flex flex-wrap gap-4 text-sm">
+      <a routerLink="/home" class="hover:text-primary">Accueil</a>
+      <a routerLink="/text-interpolation" class="hover:text-primary">Leçons</a>
+      <a routerLink="/exo-binding" class="hover:text-primary">Exercices</a>
+      <a routerLink="/tp-directive" class="hover:text-primary">Tp</a>
+    </nav>
+
+    <!-- Réseaux sociaux (optionnel) -->
+    <div class="flex gap-3">
+      <a href="#" class="btn btn-circle btn-outline btn-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M24 4.56c-.89.39-1.85.65-2.85.77a4.92 4.92 0 002.16-2.72 9.72 9.72 0 01-3.1 1.2A4.86 4.86 0 0016.62 3c-2.7 0-4.88 2.19-4.88 4.88 0 .38.04.75.12 1.1A13.8 13.8 0 013 4.15a4.87 4.87 0 001.5 6.5 4.85 4.85 0 01-2.21-.61v.06c0 2.36 1.68 4.33 3.92 4.78a4.9 4.9 0 01-2.2.08 4.89 4.89 0 004.56 3.38A9.75 9.75 0 012 20.29a13.75 13.75 0 007.44 2.18c8.93 0 13.82-7.4 13.82-13.82 0-.21 0-.42-.01-.63A9.88 9.88 0 0024 4.56z"/>
+        </svg>
+      </a>
+      <a href="#" class="btn btn-circle btn-outline btn-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.04c-5.52 0-10 4.47-10 10 0 4.42 3.59 8.06 8.22 8.88v-6.28h-2.47v-2.6h2.47V9.41c0-2.44 1.45-3.78 3.67-3.78 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.58.75-1.58 1.52v1.83h2.69l-.43 2.6h-2.26V21c4.63-.82 8.22-4.46 8.22-8.88 0-5.53-4.48-10-10-10z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bas du footer -->
+  <div class="border-t border-base-300 py-3 text-center text-sm">
+    © 2025 Supra-Angular. Tous droits réservés.
+  </div>
+</footer>
+

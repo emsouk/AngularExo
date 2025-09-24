@@ -1,3 +1,4 @@
+import { ApiPokemon } from './exo/api-pokemon/api-pokemon';
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
 
@@ -38,9 +39,17 @@ export const routes: Routes = [
       path: 'list-rendering',
       loadComponent: ()=>import('./exo/list-rendering/list-rendering').then(m=>m.ListRendering)
     },
+    {
+      path: 'http-api',
+      loadComponent: ()=>import('./lecon/http-api/http-api').then(m=>m.HttpApi)
+    },
        {
       path: 'tp-directive',
       loadComponent: ()=>import('./tp/tp-directive/tp-directive').then(m=>m.TpDirective)
+    },
+        {
+      path: 'api-pokemon',
+      loadComponent: ()=>import('./exo/api-pokemon/api-pokemon').then(m=>m.ApiPokemon)
     },
 
     //Route Page notFound ( à laisser à la fin des routes sinom bug )

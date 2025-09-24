@@ -1,1 +1,62 @@
-<p>home works!</p>
+<main class="container mx-auto px-4 sm:px-8 py-10">
+
+  <!-- Hero Section -->
+  <section class="hero bg-base-200 rounded-box shadow-lg py-12 px-6 text-center">
+    <div class="hero-content flex flex-col gap-6">
+      <h1 class="text-5xl font-bold text-primary">Bienvenue sur Supra-Angular 🚀</h1>
+      <p class="text-lg max-w-2xl mx-auto text-base-content/70">
+        Ici, c’est ton <span class="font-semibold">terrain de jeu Angular</span> 🎮 :
+        découvre les <span class="font-semibold">leçons</span>,
+        amuse-toi avec les <span class="font-semibold">exercices</span>,
+        et mets tout ça en pratique avec les <span class="font-semibold">TP</span> ⚡.
+      </p>
+      <a routerLink="/text-interpolation" class="btn btn-primary btn-lg mt-4">
+        🚀 Commencer par les Leçons
+      </a>
+    </div>
+  </section>
+
+  <!-- Section cartes -->
+  <section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- Carte Leçons -->
+    <div class="card bg-base-100 shadow-xl hover:scale-105 transition-transform duration-200">
+      <div class="card-body items-center text-center">
+        <h2 class="card-title text-secondary">📘 Leçons</h2>
+        <p>Apprends Angular étape par étape avec des exemples concrets.</p>
+        <div class="card-actions mt-4">
+          <a routerLink="/text-interpolation" class="btn btn-outline btn-secondary">
+            Explorer les Leçons
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte Exercices -->
+    <div class="card bg-base-100 shadow-xl hover:scale-105 transition-transform duration-200">
+      <div class="card-body items-center text-center">
+        <h2 class="card-title text-accent">📝 Exercices</h2>
+        <p>Teste tes skills avec des mini-challenges adaptés à chaque notion.</p>
+        <div class="card-actions mt-4">
+          <a routerLink="/exo-binding" class="btn btn-outline btn-accent">
+            S’entraîner maintenant
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte TP -->
+    <div class="card bg-base-100 shadow-xl hover:scale-105 transition-transform duration-200">
+      <div class="card-body items-center text-center">
+        <h2 class="card-title text-primary">⚡ TP</h2>
+        <p>Construis des mini-projets pour consolider ce que tu as appris.</p>
+        <div class="card-actions mt-4">
+          <a routerLink="/tp-directive" class="btn btn-outline btn-primary">
+            Lancer un TP
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

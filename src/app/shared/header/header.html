@@ -1,106 +1,95 @@
-<header class="navbar bg-base-100 shadow-lg rounded-box sticky top-0 z-50">
+<header class="navbar bg-base-100/80 backdrop-blur-md shadow-lg rounded-box sticky top-0 z-50">
   <div class="container mx-auto px-4 sm:px-8">
 
-    <!-- Logo et nom de l'application -->
+    <!-- Logo -->
     <div class="flex-1">
-      <!-- Bouton/logo cliquable renvoyant vers la page d'accueil -->
-      <a routerLink="/home" class="btn btn-ghost normal-case text-xl font-bold text-primary">
+      <a routerLink="/home" class="btn btn-ghost normal-case text-xl font-bold text-primary gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2L1.5 20.3h21L12 2zm0 3.7l7.5 13H4.5l7.5-13z"/>
+        </svg>
         Supra-Angular
       </a>
     </div>
 
-    <!-- Menu principal pour les grands écrans -->
+    <!-- Menu desktop -->
     <nav class="flex-none hidden lg:flex">
-      <ul class="menu menu-horizontal p-0">
-        <!-- Chaque item est un routerLink Angular -->
-        <li class="rounded-box">
-          <a routerLink="/home" class="hover:text-primary">Accueil</a>
+      <ul class="menu menu-horizontal p-0 gap-2">
+        <li>
+          <a routerLink="/home" class="hover:bg-base-200 rounded-lg px-3">Accueil</a>
         </li>
 
-        <!-- Menu Leçons -->
-        <li class="rounded-box">
-          <details>
-            <summary>Leçons</summary>
-            <ul class="p-2 w-3xs">
-              <li><a routerLink="/text-interpolation" class="hover:text-primary">text-interpolation</a></li>
-               <li><a routerLink="/property-binding" class="hover:text-primary">property-binding</a></li>
+        <li>
+          <details class="rounded-lg hover:bg-base-200">
+            <summary>Leçons 🐱</summary>
+            <ul class="p-2 w-48 bg-base-100 shadow-lg rounded-xl">
+              <li><a routerLink="/text-interpolation">text-interpolation</a></li>
+              <li><a routerLink="/property-binding">property-binding</a></li>
+              <li><a routerLink="/http-api">http-api</a></li>
             </ul>
           </details>
         </li>
 
-        <!-- Menu Exercices -->
-        <li class="rounded-box">
-          <details>
-
+        <li>
+          <details class="rounded-lg hover:bg-base-200">
             <summary>Exercices</summary>
-            <ul class="p-2 w-3xs">
-              <li><a routerLink="/exo-binding" class="hover:text-primary">ExoPropertyBinding</a></li>
-               <li><a routerLink="/exo-event" class="hover:text-primary">ExoEventBinding</a></li>
-               <li><a routerLink="/list-rendering" class="hover:text-primary">ExoListRendering</a></li>
+            <ul class="p-2 w-52 bg-base-100 shadow-lg rounded-xl">
+              <li><a routerLink="/exo-binding">ExoPropertyBinding</a></li>
+              <li><a routerLink="/exo-event">ExoEventBinding</a></li>
+              <li><a routerLink="/list-rendering">ExoListRendering</a></li>
+              <li><a routerLink="/api-pokemon">ExoPokemon</a></li>
             </ul>
           </details>
         </li>
 
-        <!-- Menu Tp -->
-        <li class="rounded-box">
-          <details>
+        <li>
+          <details class="rounded-lg hover:bg-base-200">
             <summary>Tp</summary>
-             <ul class="p-2 w-3xs">
-              <li><a routerLink="/tp-directive" class="hover:text-primary">Tp-1</a></li>
+            <ul class="p-2 w-40 bg-base-100 shadow-lg rounded-xl">
+              <li><a routerLink="/tp-directive">Tp-1</a></li>
             </ul>
           </details>
         </li>
       </ul>
     </nav>
 
-    <!-- Menu déroulant pour les écrans mobiles -->
+    <!-- Menu mobile -->
     <div class="flex-none lg:hidden">
-      <div class="dropdown">
-        <!-- Bouton hamburger -->
-        <label tabindex="0" class="btn btn-ghost lg:hidden">
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-square btn-ghost">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
             viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round"
-              stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+              stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </label>
 
-        <!-- Contenu du menu mobile -->
         <ul tabindex="0"
-          class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-auto">
-
-          <li class="rounded-box">
-            <a routerLink="/home" class="hover:text-primary">Accueil</a>
-          </li>
-
-          <!-- Leçons mobile -->
-          <li class="rounded-box">
+          class="menu menu-compact dropdown-content mt-3 p-2 shadow-lg bg-base-100 rounded-xl w-56">
+          <li><a routerLink="/home">Accueil</a></li>
+          <li>
             <details>
-              <summary>Leçons</summary>
-              <ul class="p-2 w-3xs">
-                <li><a routerLink="/text-interpolation" class="hover:text-primary">text-interpolation</a></li>
-                <li><a routerLink="/property-binding" class="hover:text-primary">property-binding</a></li>
+              <summary>Leçons 🐱</summary>
+              <ul class="p-2">
+                <li><a routerLink="/text-interpolation">text-interpolation</a></li>
+                <li><a routerLink="/property-binding">property-binding</a></li>
+                <li><a routerLink="/http-api">http-api</a></li>
               </ul>
             </details>
           </li>
-
-          <!-- Exercices mobile -->
-          <li class="rounded-box">
+          <li>
             <details>
               <summary>Exercices</summary>
-              <ul class="p-2 w-3xs">
-               <li><a routerLink="/exo-binding" class="hover:text-primary">ExoPropertyBinding</a></li>
-                <li><a routerLink="/exo-event" class="hover:text-primary">ExoEventBinding</a></li>
+              <ul class="p-2">
+                <li><a routerLink="/exo-binding">ExoPropertyBinding</a></li>
+                <li><a routerLink="/exo-event">ExoEventBinding</a></li>
               </ul>
             </details>
           </li>
-
-          <!-- Tp mobile -->
-          <li class="rounded-box">
+          <li>
             <details>
               <summary>Tp</summary>
-              <ul class="p-2 w-3xs">
-                <li><a routerLink="/tp-1" class="hover:text-primary">Tp-1</a></li>
+              <ul class="p-2">
+                <li><a routerLink="/tp-1">Tp-1</a></li>
               </ul>
             </details>
           </li>
@@ -109,5 +98,3 @@
     </div>
   </div>
 </header>
-
-

@@ -1,31 +1,52 @@
-
 <div id="one-friend-card" class="container mx-auto p-4">
   <!-- 🟩 Grid responsive -->
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
     <!-- 🟦 Carte Ami -->
-    <div class="card bg-base-200 shadow-xl">
+    <div class="card bg-base-200 shadow-xl hover:scale-105 transition-transform duration-200">
       <figure>
-        <img [src]="oneFriendImgUrl" [alt]="oneFriendName" alt="" class="object-cover w-full h-48 rounded-t-xl" />
+        <img [src]="oneFriendImgUrl" [alt]="oneFriendName" class="object-cover w-full h-48 rounded-t-xl" />
       </figure>
       <div class="card-body">
+
+        <!-- Nom -->
         <h2 class="card-title text-primary">
           {{ oneFriendName }}
         </h2>
 
-        <p class="text-sm">
-          <span [ngStyle]="{color: oneFriendStatus === 'Online' ? 'green' : 'red'}" class="font-bold">Status :</span>
-          {{ getOneFriendStatus() }}
-          <!-- 🟨 Ternary operator -->
+        <!-- Status -->
+        <p class="text-sm flex items-center gap-2">
+          <span class="font-bold">Status :</span>
+          <span [ngStyle]="{color: oneFriendStatus === 'Online' ? 'green' : 'red'}">
+            {{ getOneFriendStatus() }}
+          </span>
         </p>
-             <button (click)="oneFriendStatus = 'Online' " type="button">Online</button>
+
+        <!-- Bouton pour changer le status -->
+        <div class="card-actions">
+          <button (click)="oneFriendStatus = 'Online'" type="button" class="btn btn-success btn-sm">
+            Mettre en ligne
+          </button>
+          <button (click)="oneFriendStatus = 'Offline'" type="button" class="btn btn-error btn-sm">
+            Déconnecter
+          </button>
+        </div>
+
+        <!-- Age -->
         <p class="text-sm">
-          <span [ngStyle]="{color: oneFriendAge > 30 ? 'red' : 'green'}" class="font-bold">Âge :</span>
-          {{ oneFriendAge }}
+          <span class="font-bold">Âge :</span>
+          <span [ngStyle]="{color: oneFriendAge > 30 ? 'red' : 'green'}">
+            {{ oneFriendAge }}
+          </span>
         </p>
+
+        <!-- Bio -->
         <p class="text-sm">
           <span class="font-bold">Bio :</span>
           {{ oneFriendBio }}
         </p>
+
+        <!-- Réputation -->
         <p class="text-sm">
           <span class="font-bold">Réputation :</span>
           {{ 1 === 1 ? 'Ringard' : 'Cool' }}
@@ -35,26 +56,34 @@
   </div>
 </div>
 
-<div class="container mx-auto p-4  mt-8">
-  <div class="mb-4">
-    <h1>Un petit formulaire pour modifier ma card</h1>
+<!-- 🟧 Formulaire -->
+<div class="container mx-auto p-4 mt-8">
+  <div class="mb-6 text-center">
+    <h1 class="text-2xl font-bold text-primary">Modifier ma carte</h1>
   </div>
 
-  <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-  <legend class="fieldset-legend">Page details</legend>
+  <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full max-w-md mx-auto border p-6 shadow-lg">
+    <legend class="fieldset-legend text-lg font-semibold">Détails</legend>
 
-  <label class="label">Name</label>
-  <input type="text" class="input" [(ngModel)]="oneFriendName" />
+    <!-- Name -->
+    <label class="label">Nom</label>
+    <input type="text" class="input input-bordered w-full" [(ngModel)]="oneFriendName" />
 
-  <label class="label">Image URL</label>
-  <input type="text" class="input" [(ngModel)]="oneFriendImgUrl" />
+    <!-- Image -->
+    <label class="label">Image URL</label>
+    <input type="text" class="input input-bordered w-full" [(ngModel)]="oneFriendImgUrl" />
 
+    <!-- Age -->
+    <label class="label">Âge</label>
+    <input type="number" class="input input-bordered w-full" [(ngModel)]="oneFriendAge" />
 
-  <label class="label">Age</label>
-  <input type="text" class="input" [(ngModel)]="oneFriendAge"  />
+    <!-- Bio -->
+    <label class="label">Bio</label>
+    <textarea class="textarea textarea-bordered w-full" [(ngModel)]="oneFriendBio"></textarea>
 
-  <label class="label">Author</label>
-  <input type="text" class="input" [(ngModel)]="oneFriendBio" />
-</fieldset>
+    <!-- Submit -->
+    <div class="mt-4 flex justify-end">
+      <button type="button" class="btn btn-primary">Mettre à jour</button>
+    </div>
+  </fieldset>
 </div>
-

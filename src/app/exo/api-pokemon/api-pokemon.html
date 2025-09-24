@@ -1,0 +1,18 @@
+
+<div class="container mx-auto p-6">
+  <div class="text-center">
+    <h1 class="text-4xl font-bold mb-8 text-primary">Pokédex</h1>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <li *ngFor="let pokemon of pokemons" class="card bg-base-200 shadow-xl p-4 hover:scale-105 transition-transform duration-200">
+        <div class="flex flex-col items-center">
+          <span class="badge badge-primary mb-2">#{{ pokemon.id }}</span>
+          <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="w-24 h-24 object-contain mb-3" />
+          <h2 class="card-title text-lg capitalize">{{ pokemon.name }}</h2>
+ </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
